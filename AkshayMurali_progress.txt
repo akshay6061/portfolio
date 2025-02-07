@@ -1,0 +1,19 @@
+day 1: date 06/02/2025
+ 
+learn:
+
+html
+css
+javascript basics
+git
+
+implementations:
+
+html
+css
+git
+
+challenges:
+
+challenges while setting up git
+challenges while using advanced features in html
