@@ -18,9 +18,12 @@ body {
 header {
     background: #333;
     color: #fff;
-    padding-top: 30px;
+    padding-top: 20px;
     min-height: 70px;
     border-bottom: #77aaff 3px solid;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 header h1 {
@@ -55,9 +58,46 @@ header nav ul li a:hover {
     color: #77aaff;
 }
 
+/* Hero Section */
+#hero {
+    background: #77aaff;
+    color: #fff;
+    padding: 100px 0;
+    text-align: center;
+}
+
+#hero .profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    margin-bottom: 20px;
+}
+
+#hero h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+#hero p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+#hero .social-links a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+}
+
+#hero .social-links a:hover {
+    color: #333;
+}
+
 /* Sections */
 .section {
-    padding: 20px 0;
+    padding: 50px 0;
     background: #fff;
     margin-bottom: 20px;
     border-radius: 5px;
@@ -137,38 +177,39 @@ footer {
     background: #333;
     color: #fff;
     text-align: center;
-    padding: 10px 0;
+    padding: 20px 0;
     margin-top: 20px;
 }
 
-footer p {
-    margin: 0;
+footer .social-links a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
 }
 
-/* Navigation Page Specific Styles */
-.navigation-links {
-    text-align: center;
+footer .social-links a:hover {
+    color: #77aaff;
 }
 
-.navigation-links ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.navigation-links ul li {
-    margin-bottom: 10px;
-}
-
-.navigation-links ul li a {
-    display: block;
-    padding: 10px;
+/* Back to Top Button */
+#back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
     background: #77aaff;
     color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5em;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     transition: background 0.3s ease;
 }
 
-.navigation-links ul li a:hover {
+#back-to-top:hover {
     background: #5599ff;
 }

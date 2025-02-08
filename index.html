@@ -5,28 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- Header -->
     <header>
         <div class="container">
             <h1>My Portfolio</h1>
             <nav>
                 <ul>
-              
-                    <li><a href="navigation.html">Navigation</a></li> <!-- Link to Navigation Page -->
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="navigation.html">Navigation</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Rest of the portfolio content remains the same -->
-    <section id="about" class="section">
+    <!-- Hero Section -->
+    <section id="hero" class="section">
         <div class="container">
-            <h2>About Me</h2>
-            <p>Hello!I am Akshay Murali.I'm a passionate web developer with a love for creating beautiful and functional websites. I have experience in HTML, CSS, JavaScript, and more. I enjoy turning complex problems into simple, beautiful, and intuitive designs.</p>
+            <div class="hero-content">
+                <img src="profile.jpg" alt="Akshay Murali" class="profile-img">
+                <h2>Hello, I'm Akshay Murali</h2>
+                <p>Web Developer | Designer | Problem Solver</p>
+                <div class="social-links">
+                    <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://twitter.com/yourusername" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>Hello! I am Akshay Murali. I'm a passionate web developer with a love for creating beautiful and functional websites. I have experience in HTML, CSS, JavaScript, and more. I enjoy turning complex problems into simple, beautiful, and intuitive designs.</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
     <section id="skills" class="section">
         <div class="container">
             <h2>Skills</h2>
@@ -40,16 +66,26 @@
         </div>
     </section>
 
+    <!-- Projects Section -->
     <section id="projects" class="section">
         <div class="container">
             <h2>Projects</h2>
             <div class="project">
-                <h3>Project 3: Portfolio Website</h3>
+                <h3>Project 1: Portfolio Website</h3>
                 <p>This very portfolio website you're viewing right now!</p>
+            </div>
+            <div class="project">
+                <h3>Project 2: E-commerce Website</h3>
+                <p>An online store built with HTML, CSS, and JavaScript.</p>
+            </div>
+            <div class="project">
+                <h3>Project 3: Blog Platform</h3>
+                <p>A responsive blog platform for sharing articles and tutorials.</p>
             </div>
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact" class="section">
         <div class="container">
             <h2>Contact Me</h2>
@@ -68,10 +104,35 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <div class="container">
             <p>&copy; 2023 My Portfolio. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/yourusername" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
         </div>
     </footer>
+
+    <!-- JavaScript for Back to Top Button -->
+    <script>
+        // Back to Top Button
+        const backToTopButton = document.getElementById("back-to-top");
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        };
+
+        backToTopButton.addEventListener("click", () => {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+        });
+    </script>
 </body>
 </html>

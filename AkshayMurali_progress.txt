@@ -17,3 +17,46 @@ challenges:
 
 challenges while setting up git
 challenges while using advanced features in html
+
+
+day 2: date 07/02/2025
+ 
+learn:
+
+html
+javascript basics
+git
+
+implementations:
+
+html
+css
+git
+
+challenges:
+
+challenges while using git
+challenges while using advanced features in html
+
+
+day 3: date 08/02/2025
+ 
+learn:
+
+html
+css
+javascript
+git
+
+implementations:
+
+html
+css
+git
+javascript
+
+challenges:
+
+challenges while using git
+challenges while using advanced features in html
+challenges while using javascript
