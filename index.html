@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <!-- Dark Mode Toggle -->
+    <button id="theme-toggle" title="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
+
     <!-- Back to Top Button -->
     <button id="back-to-top" title="Go to top"><i class="fas fa-arrow-up"></i></button>
 
@@ -56,13 +59,13 @@
     <section id="skills" class="section">
         <div class="container">
             <h2>Skills</h2>
-            <ul>
-                <li>HTML5</li>
-                <li>CSS3</li>
-                <li>JavaScript</li>
-                <li>Responsive Design</li>
-                <li>Git & GitHub</li>
-            </ul>
+            <div class="skill-bars">
+                <div class="skill-bar" data-skill="HTML5" data-level="90"></div>
+                <div class="skill-bar" data-skill="CSS3" data-level="85"></div>
+                <div class="skill-bar" data-skill="JavaScript" data-level="80"></div>
+                <div class="skill-bar" data-skill="Responsive Design" data-level="95"></div>
+                <div class="skill-bar" data-skill="Git & GitHub" data-level="75"></div>
+            </div>
         </div>
     </section>
 
@@ -70,17 +73,29 @@
     <section id="projects" class="section">
         <div class="container">
             <h2>Projects</h2>
-            <div class="project">
-                <h3>Project 1: Portfolio Website</h3>
-                <p>This very portfolio website you're viewing right now!</p>
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="design">Design</button>
+                <button class="filter-btn" data-filter="other">Other</button>
             </div>
-            <div class="project">
-                <h3>Project 2: E-commerce Website</h3>
-                <p>An online store built with HTML, CSS, and JavaScript.</p>
-            </div>
-            <div class="project">
-                <h3>Project 3: Blog Platform</h3>
-                <p>A responsive blog platform for sharing articles and tutorials.</p>
+            <div class="project-list">
+                <div class="project" data-category="web">
+                    <h3>Project 1: Portfolio Website</h3>
+                    <p>This very portfolio website you're viewing right now!</p>
+                </div>
+                <div class="project" data-category="web">
+                    <h3>Project 2: E-commerce Website</h3>
+                    <p>An online store built with HTML, CSS, and JavaScript.</p>
+                </div>
+                <div class="project" data-category="design">
+                    <h3>Project 3: Blog Platform</h3>
+                    <p>A responsive blog platform for sharing articles and tutorials.</p>
+                </div>
+                <div class="project" data-category="other">
+                    <h3>Project 4: Game Development</h3>
+                    <p>A simple 2D game built using JavaScript and HTML5 Canvas.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -89,7 +104,7 @@
     <section id="contact" class="section">
         <div class="container">
             <h2>Contact Me</h2>
-            <form action="#" method="post">
+            <form id="contact-form" action="#" method="post">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
                 
@@ -116,8 +131,17 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Back to Top Button -->
+    <!-- JavaScript -->
     <script>
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById("theme-toggle");
+        const body = document.body;
+
+        themeToggle.addEventListener("click", () => {
+            body.classList.toggle("dark-mode");
+            themeToggle.innerHTML = body.classList.contains("dark-mode") ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        });
+
         // Back to Top Button
         const backToTopButton = document.getElementById("back-to-top");
 
@@ -130,8 +154,60 @@
         };
 
         backToTopButton.addEventListener("click", () => {
-            document.body.scrollTop = 0; // For Safari
-            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener("click", function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute("href")).scrollIntoView({
+                    behavior: "smooth"
+                });
+            });
+        });
+
+        // Skill Bars Animation
+        const skillBars = document.querySelectorAll(".skill-bar");
+        skillBars.forEach(bar => {
+            const level = bar.getAttribute("data-level");
+            bar.style.width = level + "%";
+        });
+
+        // Project Filtering
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const projects = document.querySelectorAll(".project");
+
+        filterButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                const filter = button.getAttribute("data-filter");
+
+                filterButtons.forEach(btn => btn.classList.remove("active"));
+                button.classList.add("active");
+
+                projects.forEach(project => {
+                    if (filter === "all" || project.getAttribute("data-category") === filter) {
+                        project.style.display = "block";
+                    } else {
+                        project.style.display = "none";
+                    }
+                });
+            });
+        });
+
+        // Form Validation
+        const contactForm = document.getElementById("contact-form");
+
+        contactForm.addEventListener("submit", function(e) {
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            if (name === "" || email === "" || message === "") {
+                e.preventDefault();
+                alert("Please fill out all fields.");
+            }
         });
     </script>
 </body>

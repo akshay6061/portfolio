@@ -60,3 +60,30 @@ challenges:
 challenges while using git
 challenges while using advanced features in html
 challenges while using javascript
+
+
+day 4: date 09/02/2025
+ 
+learn:
+
+html
+css
+javascript
+git
+
+implementations:
+
+Dark Mode Toggle: Switch between light and dark themes.
+
+Skill Bars: Animated bars to represent skill levels.
+
+Project Filtering: Filter projects by category (Web, Design, Other).
+
+Smooth Scroll: Smooth scrolling for anchor links.
+
+Form Validation: Basic validation for the contact form.
+
+challenges:
+
+
+challenges while using javascript
